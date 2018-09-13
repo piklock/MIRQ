@@ -1,0 +1,26 @@
+[Unit]
+Description=MRQ's distributed currency daemon
+After=network.target
+
+[Service]
+User=mrq
+Group=mrq
+
+Type=forking
+PIDFile=/var/lib/mrqd/mrqd.pid
+
+ExecStart=/usr/bin/mrqd -daemon -pid=/var/lib/mrqd/mrqd.pid \
+          -conf=/etc/mrq/mrq.conf -datadir=/var/lib/mrqd
+
+ExecStop=-/usr/bin/mrq-cli -conf=/etc/mrq/mrq.conf \
+         -datadir=/var/lib/mrqd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

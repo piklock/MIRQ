@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Mrq
+Comment=Mrq P2P Cryptocurrency
+Comment[fr]=Mrq, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Mrq, eşten eşe kriptografik sanal para birimi
+Exec=mrq-qt %u
+Terminal=false
+Type=Application
+Icon=mrq128
+MimeType=x-scheme-handler/mrq;
+Categories=Office;Finance;
